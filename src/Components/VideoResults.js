@@ -10,9 +10,22 @@ const VideoResults = ({ fetchVideos }) => {
     useEffect(() => {
         const getVideos = async () => {
             const q = searchParams.get('q');
-            console.log(searchParams.get('type'))
+            const type = searchParams.get('type');
+            const tags = searchParams.get('tags') ? searchParams.get('tags').split(',') : null;
             const serverVideos = await fetchVideos();
-            setVideos(serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())));
+
+            if (type === "advanced") {
+                var foundVideos = [];
+                for (var i = 0; i < tags.filter(value => value).length; i++) {
+                    var filtered = serverVideos.filter(video => video.tags.includes(tags.filter(tag => tag)[i]));
+                    foundVideos = [...foundVideos, ...filtered];
+                }
+
+                setVideos(q ? (!tags.every(tag => !tag) ? foundVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())) : serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase()))) : foundVideos);
+            } else {
+                setVideos(serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())));
+            }
+            
             setLoading(false);
         }
 

@@ -12,7 +12,7 @@ import WarrantyClaim from './Components/WarrantyClaim';
 function App() {
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
-  const [videosFound, setFoundVideos] = useState(null);
+  // const [videosFound, setFoundVideos] = useState(null);
 
   useEffect(() => {
     const getVideos = async () => {
@@ -60,7 +60,7 @@ function App() {
   return (
     <Router>
         <Header />
-        <Sidebar fetchVideos={fetchVideos} setFoundVideos={setFoundVideos} />
+        <Sidebar fetchVideos={fetchVideos} />
       <Routes>
         <Route path="/" exact element={<Videos videos={videos} />} />
         <Route path="/warranty_claim" exact element={<WarrantyClaim />} />
