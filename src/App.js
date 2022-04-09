@@ -32,21 +32,21 @@ function App() {
   }, []);
 
   const fetchVideos = async () => {
-    const res = await fetch(`http://localhost:5000/videos?disabled=false`);
+    const res = await fetch(`http://turbocareplus.com:5000/videos?disabled=false`);
     const data = await res.json();
 
     return data;
   }
 
   const fetchComments = async () => {
-    const res = await fetch(`http://localhost:5000/comments`);
+    const res = await fetch(`http://turbocareplus.com:5000/comments`);
     const data = await res.json();
 
     return data;
   }
 
   const addComment = async (comment) => {
-    const res = await fetch("http://localhost:5000/comments", {
+    const res = await fetch("http://turbocareplus.com:5000/comments", {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
