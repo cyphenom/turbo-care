@@ -1,13 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import LiveChat from 'react-livechat'
 import Header from './Components/Header';
 import Sidebar from './Components/Sidebar';
 import Videos from './Components/Videos';
 import PlayVideo from './Components/PlayVideo';
 import VideoResults from './Components/VideoResults';
 import WarrantyClaim from './Components/WarrantyClaim';
+import Qna from './Components/Qna';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -59,17 +60,16 @@ function App() {
 
   return (
     <Router>
-        <Header />
-        <Sidebar fetchVideos={fetchVideos} />
+      <LiveChat license={13921674}></LiveChat>
+      <Header />
+      <Sidebar fetchVideos={fetchVideos} />
       <Routes>
         <Route path="/" exact element={<Videos videos={videos} />} />
         <Route path="/warranty_claim" exact element={<WarrantyClaim />} />
+        <Route path="/qna" exact element={<Qna />} />
         <Route path="/video/:id" element={<PlayVideo fetchComments={fetchComments} fetchVideos={fetchVideos} onAdd={addComment} />} />
         <Route path="/results" element={<VideoResults fetchVideos={fetchVideos} />} />
       </Routes>
-        <Helmet>
-          <script src="./main.js"></script>
-        </Helmet>
     </Router>
   );
 }

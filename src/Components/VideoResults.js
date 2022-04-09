@@ -21,7 +21,10 @@ const VideoResults = ({ fetchVideos }) => {
                     foundVideos = [...foundVideos, ...filtered];
                 }
 
-                setVideos(q ? (!tags.every(tag => !tag) ? foundVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())) : serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase()))) : foundVideos);
+                console.log(tags.every(tag => tag === "false"));
+                console.log(tags);
+
+                setVideos(q ? (tags.every(tag => tag === "false") ? serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())) : foundVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase()))) : foundVideos);
             } else {
                 setVideos(serverVideos.filter(x => x.title.toLowerCase().includes(q.toLowerCase())));
             }
