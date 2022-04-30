@@ -7,7 +7,6 @@ import Videos from './Components/Videos';
 import PlayVideo from './Components/PlayVideo';
 import VideoResults from './Components/VideoResults';
 import WarrantyClaim from './Components/WarrantyClaim';
-import Qna from './Components/Qna';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -30,21 +29,21 @@ function App() {
   }, []);
 
   const fetchVideos = async () => {
-    const res = await fetch(`http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/videos`);
+    const res = await fetch(`http://turbocareplus.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/videos`);
     const data = await res.json();
 
     return data;
   }
 
   const fetchComments = async () => {
-    const res = await fetch(`http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments`);
+    const res = await fetch(`http://turbocareplus.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments`);
     const data = await res.json();
 
     return data;
   }
 
   const addComment = async (comment) => {
-    const res = await fetch("http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments", {
+    const res = await fetch("http://turbocareplus.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments", {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
