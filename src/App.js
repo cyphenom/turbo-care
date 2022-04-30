@@ -1,4 +1,3 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LiveChat from 'react-livechat'
@@ -13,18 +12,17 @@ import Qna from './Components/Qna';
 function App() {
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
-  // const [videosFound, setFoundVideos] = useState(null);
 
   useEffect(() => {
     const getVideos = async () => {
       const serverVideos = await fetchVideos();
       serverVideos.sort(() => Math.random() - 0.5);
-      setVideos(serverVideos.slice(0, 15))
+      setVideos(serverVideos.slice(0, 15));
     }
 
     const getComments = async () => {
       const serverComments = await fetchComments();
-      setComments(serverComments)
+      setComments(serverComments);
     }
 
     getComments();
@@ -32,21 +30,21 @@ function App() {
   }, []);
 
   const fetchVideos = async () => {
-    const res = await fetch(`http://turbocareplus.com:5000/videos?disabled=false`);
+    const res = await fetch(`http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/videos`);
     const data = await res.json();
 
     return data;
   }
 
   const fetchComments = async () => {
-    const res = await fetch(`http://turbocareplus.com:5000/comments`);
+    const res = await fetch(`http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments`);
     const data = await res.json();
 
     return data;
   }
 
   const addComment = async (comment) => {
-    const res = await fetch("http://turbocareplus.com:5000/comments", {
+    const res = await fetch("http://turboairinc.com:5000/hfia3h4q38ytwh389hgwiorehghwihg4w8t9hwhegrfwrhguwi45pgusoerhg89w4ygh/comments", {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -66,8 +64,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Videos videos={videos} />} />
         <Route path="/warranty_claim" exact element={<WarrantyClaim />} />
-        <Route path="/qna" exact element={<Qna />} />
-        <Route path="/video/:id" element={<PlayVideo fetchComments={fetchComments} fetchVideos={fetchVideos} onAdd={addComment} />} />
+        <Route path="/video/:id" exact element={<PlayVideo fetchComments={fetchComments} fetchVideos={fetchVideos} onAdd={addComment} />} />
         <Route path="/results" element={<VideoResults fetchVideos={fetchVideos} />} />
       </Routes>
     </Router>

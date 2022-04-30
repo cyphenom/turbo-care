@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PlayVideoDetails from './PlayVideoDetails';
 import PlayVideoSidebar from './PlayVideoSidebar';
-
 const PlayVideo = ({ fetchComments, fetchVideos, onAdd }) => {
   const [video, setVideo] = useState(null);
   const [comments, setComments] = useState(null);

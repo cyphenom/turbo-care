@@ -24,3 +24,13 @@ overlay.onclick = function () {
     overlay.classList.remove('active');
     sidebar.classList.remove('mobile-sidebar');
 }
+
+
+let url = location.href;
+document.body.addEventListener('click', () => {
+    requestAnimationFrame(() => {
+        if (url !== location.href) {
+            location.reload();
+        }
+    });
+}, true);

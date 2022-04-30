@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 import Home from '../Assets/home.png';
@@ -22,24 +22,6 @@ const Sidebar = () => {
     );
     const [search, setSearch] = useState("");
 
-    useEffect(() => {
-        const script1 = document.createElement('script');
-        const script2 = document.createElement('script');
-
-        script1.src = "./main.js";
-        script2.src = "../main.js";
-        script1.async = true;
-        script2.async = true;
-
-        document.body.appendChild(script1);
-        document.body.appendChild(script2);
-
-        return () => {
-            document.body.removeChild(script1);
-            document.body.removeChild(script2);
-        }
-    }, []);
-
     return (
         <>
             <div className={location.pathname === '/' || location.pathname === '/results' || location.pathname === '/warranty_claim' ? 'sidebar' : 'disabled-sidebar'}>
@@ -49,7 +31,7 @@ const Sidebar = () => {
                     {/* <a href=""><img src={Subscription} /><p>Parts</p></a> */}
                     <Link to="/warranty_claim"><img src={Library} /><p>Warranty Claim</p></Link>
                     {/* <a href=""><img src={History} /><p>Troubleshooter</p></a> */}
-                    <Link to="/qna"><img src={Messages} /><p>Q & A</p></Link>
+                    <a target="_blank" href="http://localhost:3001"><img src={Messages} /><p>Q & A</p></a>
                     {/* <a href=""><img src={Messages} /><p>Support</p></a> */}
                     <hr />
                 </div>
@@ -91,11 +73,11 @@ const Sidebar = () => {
                     <div className="shortcut-links">
                         <Link to="/"><img src={Home} /><p>Home</p></Link>
                         {/* <a href=""><KitchenIcon></KitchenIcon><p>Products</p></a> */}
-                        <a href=""><img src={Subscription} /><p>Parts</p></a>
+                        {/* <a href=""><img src={Subscription} /><p>Parts</p></a> */}
                         <Link to="/warranty_claim"><img src={Library} /><p>Warranty Claim</p></Link>
-                        <a href=""><img src={History} /><p>Troubleshooter</p></a>
-                        <a href=""><img src={Playlist} /><p>Q & A</p></a>
-                        <a href=""><img src={Messages} /><p>Support</p></a>
+                        {/* <a href=""><img src={History} /><p>Troubleshooter</p></a> */}
+                        <a target="_blank" href="http://localhost:3001"><img src={Messages} /><p>Q & A</p></a>
+                        {/* <a href=""><img src={Messages} /><p>Support</p></a> */}
                     </div>
                     <div className="subscribed-list">
                         <h3>ADVANCED SEARCH</h3>
