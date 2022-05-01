@@ -163,6 +163,7 @@ nav {
 
 .banner {
     width: 100%;
+    margin-top: 55px;
 }
 
 .banner img {
@@ -175,7 +176,7 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
-    margin-top: 15px;    
+    margin-top: 55px;    
 }
 
 .vid-list .thumbnail {
@@ -208,6 +209,7 @@ nav {
 
 .play-container {
     padding-left: 2%;
+    margin-top: 55px;
 }
 
 .row {
@@ -532,4 +534,10 @@ nav {
 
 .disabled-sidebar {
     display: none;
+}
+
+@media (max-width: 600px) {
+    .video {
+        max-height: 20%;
+    }
 }

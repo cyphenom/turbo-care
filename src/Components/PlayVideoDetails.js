@@ -38,7 +38,7 @@ const PlayVideoDetails = ({ comments, video, onAdd }) => {
 
     return (
         <>
-            <iframe width="1012" height="759" src={"https://www.youtube-nocookie.com/embed/" + video.videoId} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <iframe className="video" width="1012" height="759" src={"https://www.youtube-nocookie.com/embed/" + video.videoId} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             <div className="tags">
                 {tags}
             </div>
